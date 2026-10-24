@@ -14,3 +14,8 @@ export type Book= {
     lending_identifier_s: string,
     public_scan_b: boolean,
     title: string }
+
+export type Data= {
+    docs: Book[],
+    q: string
+}

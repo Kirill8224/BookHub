@@ -1,11 +1,12 @@
-import { GetBooks } from './ui/GetBooks';
+import { GetBooks } from './GetBooks'
 import { Input, Button} from '@mui/material';
 import { useState } from 'react';
-import { searchBooks } from './api/SearchBooks';
+import { searchBooks } from '../api/SearchBooks';
+import type { Data } from '../types';
 
 function App() {
   const [nameBooks, setNameBooks]= useState<string>('')
-  const [books, setBooks]= useState<any>(null)
+  const [books, setBooks]= useState<Data | null>(null)
   async function searchBooksForClick(){
     const result= await searchBooks(nameBooks)
     console.log(result)

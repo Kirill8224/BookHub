@@ -1,4 +1,3 @@
-
 import axios from "axios"
 export async function searchBooks(nameBooks: string){
     const data= await axios.get('https://openlibrary.org/search.json', {
@@ -6,5 +5,6 @@ export async function searchBooks(nameBooks: string){
         q: nameBooks
       }
     })
+    console.log(data.data)
     return(data.data)
   }
