@@ -5,19 +5,28 @@ const initialState: Data= {
     docs: [],
     q: ''
 }
-export const fetchBooks= createAsyncThunk(
-    'books/get',
-     async (nameBooks: string)=>{
-        const res= await searchBooks(nameBooks)
+export const fetchBooks= createAsyncThunk<Data, string>(
+    'booksGet',
+    async (nameBook: string): Promise<Data>=>{
+        const res= await searchBooks(nameBook)
         return(res)
     }
+    
 )
-const bookSlice= createSlice({
+const booksReducer= createSlice({
    name: 'Books',
    initialState,
+   extraReducers: (builder)=>{
+    builder.addCase(fetchBooks.fulfilled, (state, action)=>{
+        state.docs= action.payload.docs
+        state.q= action.payload.q
+    })
+   },
     reducers: {
         }
         }
 )
 
-export default bookSlice.reducer
+export default booksReducer.reducer
+
+
