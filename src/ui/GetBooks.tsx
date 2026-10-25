@@ -1,7 +1,8 @@
 import { Card } from "@mui/material"
-import type { Book } from "../types"
-export function GetBooks({books}: {books: Book[]}){
-    if(books){
+import {  useAppSelector } from '../hooks';
+export function GetBooks(){
+  const books= useAppSelector((state)=> state.booksState.docs)
+    if(books.length > 0){
     return books.map((book)=>{
       return(<Card sx={{m: 1}} key={book.key}>
       <h2>{book.title}</h2>
@@ -9,4 +10,7 @@ export function GetBooks({books}: {books: Book[]}){
       <p>год выпуска: {book.first_publish_year}</p>
       </Card>)
     })}
+    else{
+      return (<h2>книг не найдено</h2>)
+    }
   }
