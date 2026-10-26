@@ -5,6 +5,6 @@ export async function searchBooks(nameBooks: string){
         q: nameBooks
       }
     })
-    console.log(data.data)
-    return(data.data)
+    console.log(data)
+    return(data)
   }

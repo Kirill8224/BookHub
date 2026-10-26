@@ -16,6 +16,8 @@ export type Book= {
     title: string }
 
 export type Data= {
+    data: {
     docs: Book[],
-    q: string
+    q: string},
+    loading?: boolean
 }

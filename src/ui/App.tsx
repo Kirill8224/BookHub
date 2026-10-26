@@ -2,22 +2,23 @@ import { GetBooks } from './GetBooks'
 import { Input, Button} from '@mui/material';
 import { useState } from 'react';
 import { fetchBooks } from '../booksSlice';
-import { useAppDispatch } from '../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
 
 function App() {
   const [nameBooks, setNameBooks]= useState<string>('')
-  const [loading, setLoading]= useState<boolean>(false)
+  const [ok, setOk]= useState<boolean>(false)
+  const loading= useAppSelector((state)=>state.booksState.loading)
   const dispatch= useAppDispatch()
    const habdleClick= async ()=>{
+    setOk(true)
     await dispatch(fetchBooks(nameBooks))
-    setLoading(true)
    }
   return (
     <div>
       <h1>Book Explorer</h1>
       <Input onChange={(e)=>{setNameBooks(e.target.value)}}></Input>
       <Button onClick= {()=>{nameBooks.length > 2 ? habdleClick() : alert('введите название')}}>Найти книги</Button>
-      {loading && <GetBooks />}
+      {loading ? <h1>загрузка</h1> : ok && <GetBooks />}
     </div>
   );
 }
