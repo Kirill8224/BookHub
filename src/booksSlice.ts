@@ -5,7 +5,8 @@ const initialState: Data= {
     data: {
     docs: [],
     q: ''},
-    loading: false
+    loading: false,
+    error: false
 }
 export const fetchBooks= createAsyncThunk<Data, string>(
     'fetchBooks', 
@@ -27,6 +28,11 @@ const booksReducer= createSlice({
         builder.addCase(fetchBooks.pending, (state)=>{
             state.loading= true
         })
+        builder.addCase(fetchBooks.rejected, (state)=>{
+            state.error= true
+            state.loading= false
+        })
+
     },
     reducers: {}
         }

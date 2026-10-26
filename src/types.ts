@@ -19,5 +19,6 @@ export type Data= {
     data: {
     docs: Book[],
     q: string},
-    loading?: boolean
+    loading?: boolean,
+    error?: boolean
 }

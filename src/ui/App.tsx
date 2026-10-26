@@ -13,12 +13,14 @@ function App() {
     setOk(true)
     await dispatch(fetchBooks(nameBooks))
    }
+   const error= useAppSelector((state)=>state.booksState.error)
   return (
     <div>
       <h1>Book Explorer</h1>
       <Input onChange={(e)=>{setNameBooks(e.target.value)}}></Input>
       <Button onClick= {()=>{nameBooks.length > 2 ? habdleClick() : alert('введите название')}}>Найти книги</Button>
       {loading ? <h1>загрузка</h1> : ok && <GetBooks />}
+      {error && <h1 style={{color: 'red'}}>ошибка</h1>}
     </div>
   );
 }
