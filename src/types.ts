@@ -16,9 +16,19 @@ export type Book= {
     title: string }
 
 export type Data= {
-    data: {
     docs: Book[],
-    q: string},
-    loading?: boolean,
-    error?: boolean
+    q: string,
+    loading: boolean,
+    error: boolean
 }
+export type DataResponseApi= {
+    docs: Book[],
+    documentation_url : string,
+    numFound : number,
+    numFoundExact : boolean,
+    num_found : number,
+    offset : any,
+    q: string,
+    start: number
+}
+

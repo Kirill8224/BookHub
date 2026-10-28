@@ -1,7 +1,7 @@
 import { Card } from "@mui/material"
 import {  useAppSelector } from '../hooks';
 export function GetBooks(){
-  const books= useAppSelector((state)=> state.booksState.data.docs)
+  const books= useAppSelector((state)=> state.booksState.docs)
     if(books.length > 0){
     return books.map((book)=>{
       return(<Card sx={{m: 1}} key={book.key}>
