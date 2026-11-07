@@ -18,7 +18,7 @@ function App() {
     <div>
       <h1>Book Explorer</h1>
       <Input onChange={(e)=>{setNameBooks(e.target.value)}}></Input>
-      <Button onClick= {()=>{nameBooks.length > 2 ? habdleClick() : alert('введите название')}}>Найти книги</Button>
+      <Button variant='contained' color='success' onClick= {()=>{nameBooks.length > 2 ? habdleClick() : alert('введите название')}}>Найти книги</Button>
       {loading ? <h1>загрузка</h1> : ok && <GetBooks />}
       {error && <h1 style={{color: 'red'}}>ошибка</h1>}
     </div>
