@@ -15,7 +15,7 @@ export function GetBooks(){
       setRus(true)
     }
   }
-    if(books.length > 0){
+    if(books && books.length > 0){
     return(<>
       <Button onClick={()=>{hundleClick(rus)}}>{rus ? 'книги на всех языках' : 'книиги на русском'}</Button>
       {rusBooks && rus ? <Books books= {rusBooks}/> : <Books books= {books}/>}
