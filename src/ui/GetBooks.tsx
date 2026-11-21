@@ -23,6 +23,6 @@ export function GetBooks(){
     )
   }
     else{
-      return (<h2>книг не найдено</h2>)
+      return (<h2>книг не найдено...</h2>)
     }
   }
