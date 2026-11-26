@@ -19,7 +19,8 @@ export type Data= {
     docs: Book[],
     q: string,
     loading: boolean,
-    error: boolean
+    error: boolean,
+    errorMessage: string | null
 }
 export type DataResponseApi= {
     docs: Book[],

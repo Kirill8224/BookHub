@@ -5,6 +5,7 @@ import { booksRus } from '../api/selector';
 import { useState } from 'react';
 export function GetBooks(){
   const books= useAppSelector((state)=> state.booksState.docs)
+  const errorMessage= useAppSelector((state)=> state.booksState.errorMessage)
   const rusBooks= booksRus(books)
   const [rus, setRus]= useState<boolean>(false)
   const hundleClick= (status: boolean)=>{
@@ -14,6 +15,9 @@ export function GetBooks(){
     if(status === false){
       setRus(true)
     }
+  }
+  if(errorMessage){
+    return(<h1>{errorMessage}</h1>)
   }
     if(books && books.length > 0){
     return(<>
