@@ -31,14 +31,15 @@ const booksReducer= createAppSlice({
                 fulfilled: (state, action)=>{
                     state.docs= action.payload.docs
                     state.q= action.payload.q
-                    state.loading= false
                     state.error= false
                     state.errorMessage= null
                 },
                 rejected: (state, action)=>{
                     state.error= true
-                    state.loading= false
                     state.errorMessage ?? action.payload
+                },
+                settled: (state)=>{
+                    state.loading= false
                 }
             }
         )
